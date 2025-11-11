@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+private class BmoBundleHelper {}
+
 // BMO Emoji Decoder based on the JavaScript reference
 struct BmoDecoder {
 
@@ -70,13 +72,21 @@ struct BmoDecoder {
     // Try different approaches to find the manifest
     var url: URL?
 
+      
+  let podBundle: Bundle
+  if let bundleURL = Bundle(for: BmoBundleHelper.self).url(forResource: "BBCode", withExtension: "bundle"),
+     let bundle = Bundle(url: bundleURL) {
+      podBundle = bundle
+  } else {
+      podBundle = Bundle.main
+  }
     // First try with subdirectory
-    url = Bundle.module.url(
+    url = podBundle.url(
       forResource: "manifest.local", withExtension: "json", subdirectory: "Bmo")
 
     // If not found, try without subdirectory
     if url == nil {
-      url = Bundle.module.url(forResource: "manifest.local", withExtension: "json")
+      url = podBundle.url(forResource: "manifest.local", withExtension: "json")
     }
 
     guard let manifestUrl = url else {

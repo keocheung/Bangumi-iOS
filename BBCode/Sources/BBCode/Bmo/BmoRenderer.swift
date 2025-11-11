@@ -3,6 +3,8 @@ import CoreImage
 import Foundation
 import SwiftUI
 
+private class BmoRendererHelper {}
+
 // BMO Emoji Renderer
 struct BmoRenderer {
 
@@ -121,15 +123,22 @@ struct BmoRenderer {
     // Try different approaches to find the image
     var url: URL?
 
+      let podBundle: Bundle
+      if let bundleURL = Bundle(for: BmoRendererHelper.self).url(forResource: "BBCode", withExtension: "bundle"),
+         let bundle = Bundle(url: bundleURL) {
+          podBundle = bundle
+      } else {
+          podBundle = Bundle.main
+      }
     // First try with subdirectory
-    url = Bundle.module.url(
+    url = podBundle.url(
       forResource: filename.replacingOccurrences(of: ".png", with: ""),
       withExtension: "png",
       subdirectory: "Bmo")
 
     // If not found, try without subdirectory
     if url == nil {
-      url = Bundle.module.url(
+      url = podBundle.url(
         forResource: filename.replacingOccurrences(of: ".png", with: ""),
         withExtension: "png")
     }

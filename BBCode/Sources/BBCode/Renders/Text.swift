@@ -1,5 +1,7 @@
 import SwiftUI
 
+private class TextHelper {}
+
 extension BBCode {
   @MainActor
   public func text(_ bbcode: String, args: [String: Any]? = nil) -> TextView {
@@ -630,12 +632,21 @@ var textRenders: [BBType: TextRender] {
       let bgmId = Int(n.attr) ?? 24
       let textSize = args?["textSize"] as? Int ?? 16
 
+        
+        let podBundle: Bundle
+        if let bundleURL = Bundle(for: TextHelper.self).url(forResource: "BBCode", withExtension: "bundle"),
+           let bundle = Bundle(url: bundleURL) {
+            podBundle = bundle
+        } else {
+            podBundle = Bundle.main
+        }
+        
       // Try to load image with fallback for different formats
       let img: Image
       if bgmId > 0 && bgmId < 24 {
         // old range - try gif first, then png
         let iconId = String(format: "%02d", bgmId)
-        if Bundle.module.path(forResource: "bgm\(iconId)", ofType: "gif") != nil {
+        if podBundle.path(forResource: "bgm\(iconId)", ofType: "gif") != nil {
           img = Image(packageResource: "bgm\(iconId)", ofType: "gif")
         } else {
           img = Image(packageResource: "bgm\(iconId)", ofType: "png")
@@ -648,7 +659,7 @@ var textRenders: [BBType: TextRender] {
         img = Image(packageResource: "bgm\(bgmId)", ofType: "png")
       } else if bgmId >= 500 && bgmId <= 529 {
         // tv_500 range - try gif first, then png
-        if Bundle.module.path(forResource: "bgm\(bgmId)", ofType: "gif") != nil {
+        if podBundle.path(forResource: "bgm\(bgmId)", ofType: "gif") != nil {
           img = Image(packageResource: "bgm\(bgmId)", ofType: "gif")
         } else {
           img = Image(packageResource: "bgm\(bgmId)", ofType: "png")

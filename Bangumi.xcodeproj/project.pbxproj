@@ -3,25 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 71;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		19671C732BDEB8B1000B4D99 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19671C722BDEB8B1000B4D99 /* KeychainSwift */; };
 		1968C5DD2CD5010C00242103 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 1968C5DC2CD5010C00242103 /* Flow */; };
-		19B9E2D62EAC955A00934E31 /* BBCode in Frameworks */ = {isa = PBXBuildFile; productRef = 19B9E2D52EAC955A00934E31 /* BBCode */; };
 		19BD24262BE9C53800595973 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 19BD24252BE9C53800595973 /* Kingfisher */; };
+		72E6C8488F45431099C3BC64 /* Pods_Bangumi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6785EB9DB07C1138128F2CCD /* Pods_Bangumi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19BB342B2BD239AB00E5C295 /* Bangumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bangumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B048FA84EF42A9F39155474 /* Pods-Bangumi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bangumi.debug.xcconfig"; path = "Target Support Files/Pods-Bangumi/Pods-Bangumi.debug.xcconfig"; sourceTree = "<group>"; };
+		6785EB9DB07C1138128F2CCD /* Pods_Bangumi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bangumi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9905F4377C5D73EC9EF9827 /* Pods-Bangumi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bangumi.release.xcconfig"; path = "Target Support Files/Pods-Bangumi/Pods-Bangumi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		198AF37E2D2FB93F0091D376 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		198AF37E2D2FB93F0091D376 /* Exceptions for "App" folder in "Bangumi" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Config.xcconfig,
 				Info.plist,
 			);
 			target = 19BB342A2BD239AB00E5C295 /* Bangumi */;
@@ -29,7 +31,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		198AF2D82D2FB93F0091D376 /* App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (198AF37E2D2FB93F0091D376 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = App; sourceTree = "<group>"; };
+		198AF2D82D2FB93F0091D376 /* App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				198AF37E2D2FB93F0091D376 /* Exceptions for "App" folder in "Bangumi" target */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +47,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19BD24262BE9C53800595973 /* Kingfisher in Frameworks */,
-				19B9E2D62EAC955A00934E31 /* BBCode in Frameworks */,
 				19671C732BDEB8B1000B4D99 /* KeychainSwift in Frameworks */,
 				1968C5DD2CD5010C00242103 /* Flow in Frameworks */,
+				72E6C8488F45431099C3BC64 /* Pods_Bangumi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,8 @@
 			children = (
 				198AF2D82D2FB93F0091D376 /* App */,
 				19BB342C2BD239AB00E5C295 /* Products */,
+				3205E5BBDA9B64E2E9DF89FD /* Pods */,
+				32DA6FD2C6085A86A29B04D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +74,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3205E5BBDA9B64E2E9DF89FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B048FA84EF42A9F39155474 /* Pods-Bangumi.debug.xcconfig */,
+				D9905F4377C5D73EC9EF9827 /* Pods-Bangumi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		32DA6FD2C6085A86A29B04D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6785EB9DB07C1138128F2CCD /* Pods_Bangumi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -70,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19BB343B2BD239AC00E5C295 /* Build configuration list for PBXNativeTarget "Bangumi" */;
 			buildPhases = (
+				8504E91BE72ACCDA0B3199DF /* [CP] Check Pods Manifest.lock */,
 				19BB34272BD239AB00E5C295 /* Sources */,
 				19BB34282BD239AB00E5C295 /* Frameworks */,
 				19BB34292BD239AB00E5C295 /* Resources */,
+				BA9EB8546C540CC738453888 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -86,7 +116,6 @@
 				19671C722BDEB8B1000B4D99 /* KeychainSwift */,
 				19BD24252BE9C53800595973 /* Kingfisher */,
 				1968C5DC2CD5010C00242103 /* Flow */,
-				19B9E2D52EAC955A00934E31 /* BBCode */,
 			);
 			productName = Bangumi;
 			productReference = 19BB342B2BD239AB00E5C295 /* Bangumi.app */;
@@ -108,7 +137,6 @@
 				};
 			};
 			buildConfigurationList = 19BB34262BD239AB00E5C295 /* Build configuration list for PBXProject "Bangumi" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -120,8 +148,8 @@
 				191FEF252BDCF59B0047162A /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				19BD24242BE9C53800595973 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1968C5DB2CD5010C00242103 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
-				19B9E2D42EAC955A00934E31 /* XCLocalSwiftPackageReference "BBCode" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 19BB342C2BD239AB00E5C295 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +168,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8504E91BE72ACCDA0B3199DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bangumi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA9EB8546C540CC738453888 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bangumi/Pods-Bangumi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bangumi/Pods-Bangumi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bangumi/Pods-Bangumi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19BB34272BD239AB00E5C295 /* Sources */ = {
@@ -281,6 +351,7 @@
 		};
 		19BB343C2BD239AC00E5C295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B048FA84EF42A9F39155474 /* Pods-Bangumi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -288,6 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_TEAM = 46W8C56W3C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
@@ -305,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.everpcpc.chobits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.keocheung.chobits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -315,6 +387,7 @@
 		};
 		19BB343D2BD239AC00E5C295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9905F4377C5D73EC9EF9827 /* Pods-Bangumi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_TEAM = 46W8C56W3C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
@@ -370,13 +444,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		19B9E2D42EAC955A00934E31 /* XCLocalSwiftPackageReference "BBCode" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = BBCode;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		191FEF252BDCF59B0047162A /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -414,10 +481,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1968C5DB2CD5010C00242103 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
 			productName = Flow;
-		};
-		19B9E2D52EAC955A00934E31 /* BBCode */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BBCode;
 		};
 		19BD24252BE9C53800595973 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

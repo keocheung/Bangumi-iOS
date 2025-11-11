@@ -6,6 +6,8 @@ private struct IsInLinkKey: EnvironmentKey {
   static let defaultValue: Bool = false
 }
 
+private class ImageBundleHelper {}
+
 extension EnvironmentValues {
   var isInLink: Bool {
     get { self[IsInLinkKey.self] }
@@ -15,8 +17,15 @@ extension EnvironmentValues {
 
 extension Image {
   init(packageResource name: String, ofType type: String) {
+      let podBundle: Bundle
+      if let bundleURL = Bundle(for: ImageBundleHelper.self).url(forResource: "BBCode", withExtension: "bundle"),
+         let bundle = Bundle(url: bundleURL) {
+          podBundle = bundle
+      } else {
+          podBundle = Bundle.main
+      }
     #if canImport(UIKit)
-      guard let path = Bundle.module.path(forResource: name, ofType: type),
+      guard let path = podBundle.path(forResource: name, ofType: type),
         let image = UIImage(contentsOfFile: path)
       else {
         self.init(name)
